@@ -17,10 +17,14 @@ class MainActivity : AppCompatActivity() {
         val pref = getSharedPreferences(filename, Context.MODE_PRIVATE)
         binding.btnSave.setOnClickListener {
             val editor = pref.edit()
-            editor.putString("firstName",
-                binding.etFirstName.text.toString())
-            editor.putString("lastName",
-                binding.etLastName.text.toString())
+            editor.putString(
+                "firstName",
+                binding.etFirstName.text.toString()
+            )
+            editor.putString(
+                "lastName",
+                binding.etLastName.text.toString()
+            )
             editor.apply()
             Toast.makeText(this, "Saved Data!", Toast.LENGTH_LONG).show()
         }
@@ -32,12 +36,13 @@ class MainActivity : AppCompatActivity() {
             binding.etLastName.setText(lastName)
             binding.tvOutput.text = output
         }
-        binding.btnSecondActivity.setOnClickListener{
-            val intent = Intent(this@MainActivity,SecondActivity::class.java)
+        binding.btnSecondActivity.setOnClickListener {
+            val intent = Intent(this@MainActivity, SecondActivity::class.java)
             startActivity(intent)
         }
 
     }
+
     override fun onResume() {
         super.onResume()
         binding.etFirstName.setText("")
